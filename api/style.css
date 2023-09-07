@@ -1,0 +1,11 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.pBox{
+  margin: 0 10px;
+  width: 250px;
+  height: 300px;
+}
