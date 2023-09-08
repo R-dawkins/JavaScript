@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="module" src="./es6-kobis-1.js"></script>
+  <script src="./es6-kobis-1.js"></script>
+  <!-- module등을 붙이지 않으면 에러가 날 수있다
+  DOMContentLoaded등의 이벤트를 활용해야 한다-->
+  
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
+  <h1>KOBIS 박스오피스 (FETCH)</h1>
   <main>
-    
+    <form class="subm">
+      <span>날짜:</span>
+      <input type="text" id="searchDate">
+      <button type="button" id="search">검색</button>
+    </form>
+    <div id="kobisContent"></div>
+    <!-- <script src="./es6-kobis-1.js"></script> -->
   </main>
 </body>
 </html>

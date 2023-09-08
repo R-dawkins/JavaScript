@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Array.from()</title>
+        <script>
+            window.addEventListener('DOMContentLoaded', function(){
+            
+                const fruits = document.querySelectorAll("div.fruits p");
+                //.fruits는 3개의 p태그를 포함한 노드 리스트(NodeList)(배열과 비슷한 구조)이다.
+
+                const farray = Array.from(fruits);  //배열로 변환
+                // const farray = Array.from(document.querySelectorAll(".fruits p"));  //배열로 변환
+            
+
+                console.log(`length : ${farray.length}`);  //length : 3
+                console.log(farray);   //[p, p, p]
+
+                //이제 배열로 변환된 farray객체에 map()을 사용할 수  있다.
+                const fnames = farray.map(f => f.textContent);
+
+                console.log(fnames); //["Apple","Banana","Orange"]
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="fruits">
+            <p>Apple</p>
+            <p>Banana</p>
+            <p>Orange</p>
+        </div>
+    </body>
+</html>
