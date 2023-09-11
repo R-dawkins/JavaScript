@@ -23,7 +23,7 @@ const getKobis = (date='20230907')=>{
         ${koRes.map(item=>
           ` 
           <tr>
-          <td><a href="./detail.html?id=${item.movieCd}">${item.movieNm}</a></td>
+          <td><a href="./detail.html?id=${item.rnum}">${item.movieNm}</a></td>
           <td class ="rank">${item.rank}위</td>
           <td class ="date">${item.openDt}</td>
           <td class ="dayAcc">${item.audiCnt}명</td>
@@ -34,7 +34,8 @@ const getKobis = (date='20230907')=>{
           ).join('\n')}
           </table>
           </div>
-          `)}
+          `)
+        }
           // map함수로 단순 문자열 출력만 할 때는 braces 없이 적는다
           // document.getElementById("kobisContent") 옛날 방법
           // document.querySelector('#kobisContent') 요즘 방법
@@ -46,6 +47,7 @@ const getKobis = (date='20230907')=>{
         .catch(
           )
         }
+        
 //일별 박스오피스 출력 -순위, 영화제목, 개봉일, 누적관객수, 누적매출액
 // console.log(kobis.boxOfficeResult.dailyBoxOfficeList[0]);
 
@@ -67,3 +69,5 @@ document.addEventListener("DOMContentLoaded",()=>{
   })
 })
 //일별,주별
+
+
