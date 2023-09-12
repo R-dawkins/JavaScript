@@ -14,13 +14,16 @@
   <h1>KOBIS 박스오피스 (FETCH)</h1>
   <main>
     <form class="subm">
-      <input type="checkbox" name="boxoffice" id="">일간
-      <input type="checkbox" name="boxoffice" id="">주간
+      <input type="radio" name="boxoffice" value="Daily" checked>일간
+      <input type="radio" name="boxoffice" value="Weekly">주말
       <span>날짜:</span>
       <input type="text" id="searchDate">
       <button type="button" id="search">검색</button>
     </form>
     <div id="kobisContent"></div>
+    <div class="movie-detail">
+
+    </div>
     <!-- <script src="./es6-kobis-1.js"></script> -->
   </main>
 </body>
