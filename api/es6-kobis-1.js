@@ -2,11 +2,14 @@
   Kobis 일별 박스오피스 출력
 */
 function showDailyList(kobis,range='Daily'){
-  let koRes;
+  let koRes = kobis.boxOfficeResult.weeklyBoxOfficeList
     if(range === 'Daily'){koRes = kobis.boxOfficeResult.dailyBoxOfficeList;
     console.log(koRes);}
     else if(range === 'Weekly'){koRes = kobis.boxOfficeResult.weeklyBoxOfficeList;}
-  function diplayDb(){
+  function diplayDb(koRes){ 
+    //계속 undefind가 뜬 이유 - diplayDb에서 koRes를 파라미터로 넘겨주지 않았음
+    //그래서 koRes.map에서 Weekly를 받지 못해 자꾸 오류가 생김
+    //오류가 생긴 위치를 자세히 보고 생각하자
     console.log(koRes);
     document.querySelector('#kobisContent').insertAdjacentHTML('beforeend',`
     <h2>${kobis.boxOfficeResult.boxofficeType}</h2>
@@ -42,7 +45,7 @@ function showDailyList(kobis,range='Daily'){
       //된 뒤에 script파일을 실행하는것
       //DOM 객체 생성 후 diplayDb 함수 호출
     }
-    diplayDb()
+    diplayDb(koRes)
     //1. movieName 클래스를 가지고 있는 태그요소 가져오기 --> document.querySelectorAll(클래스명)
     //const mlist = document.
     document.querySelectorAll('.movieName').forEach((td)=>{
@@ -55,13 +58,14 @@ function showDailyList(kobis,range='Daily'){
 
 const getKobis = (date,range)=>{
     function KobisFetch(date='20230911',range='Daily'){
-      return fetch(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/search${range}BoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=${date}`)
+      if(range === 'Daily'){return fetch(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/search${range}BoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=${date}`)}
+      else if(range=== 'Weekly'){return fetch(`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/search${range}BoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=${date}`)}
     }
     console.log(KobisFetch(date,range));
     KobisFetch(date,range)
     .then(response => response.json())
-    .then((kobis)=>{showDailyList(kobis)
-    console.log(kobis);
+    .then((kobis)=>{showDailyList(kobis,range)
+      console.log(kobis);
     })
     // .then(showDailyList)// 아래와 같은 코드를 생략가능
     // .then(kobis => {showDailyList(kobis)}) 

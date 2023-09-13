@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./script/script.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- input에 name은 필수 -->
+  <form name="join-member">
+  <fieldset>
+    <legend>회원 가입</legend>
+      <ul>
+      <li>
+        <label for="name">이름 :</label> <input id="name" class="name" name="name" type="text">
+        <small class="nameCheck"></small>
+      </li>
+
+      <li>
+        <label for="id">아이디 :</label> <input id="id" class="id" name="id" type="text"><button type="button">아이디 중복확인</button> <br>
+        <em class="idCheck">* 4~12글자까지만 입력 가능합니다</em>
+      </li>
+
+      <li>
+        <label>비밀번호 :</label> <input id="pw" class="pw" name="pw" minlength="4" maxlength="12" type="password"> <br>
+        <em class="pwCheck">* 4~12글자까지만 입력 가능합니다</em>
+      </li>
+      
+      <li>
+        <label>비밀번호 확인 :</label> <input id="pwc" class="pwc" name="pwc" minlength="4" maxlength="12" type="password">
+        <em class="pwcCheck"></em>
+      </li>
+
+      <li>
+        <label>생년월일 :</label> <input id="birth" class="birth" type="number" name="birth"> <br>
+        <em class="birthCheck">*ex)19700101 - 8자리로 입력</em>
+      </li>
+      
+      <li>
+        <label>주소검색 :</label> <input name="add-search" type="text"><button>주소검색</button>
+      </li>
+      <!-- 주소검색에서 카카오나 네이버등 api이용해서 -->
+
+      <li>
+        <label>주소 :</label> <input name="add1" type="text" placeholder="기본주소"> <input name="add2" type="text" placeholder="상세주소">
+      </li>
+
+      <li>
+        <label>이메일 :</label> <input id="email-id" name="email-id" type="text">@<input id="email" name="email" type="text">
+        <select name="emailSelect" id="emailSelect">
+          <option value="self">직접입력</option>
+          <option value="naver.com">naver.com</option>
+          <option value="daum.net">daum.net</option>
+          <option value="gmail.com">gmail.com</option>
+        </select> <br>
+        <em class="emailCheck"></em>
+        <!-- 이메일 선택해서 email value에 넣기 -->
+      </li>
+
+      <li>
+        <label>전화번호 :</label> <input type="tel" name="phone" id="phone"> <br>
+        <em class="phoneCheck">* '-'없이 숫자만 입력</em>
+      </li>
+      
+      <li>
+        <input type="checkbox" name="agree" id="agree">약관 동의 <br>
+        <em class="agreeCheck">* 필수</em>
+      </li>
+
+      </ul>
+      <p>
+        <button type="button" class="prev">이전으로</button>
+        <button type="button" id="memberJoin" class="member">회원가입</button>
+      </p>
+      <!-- 필수항목 validation 체크 -->
+    </fieldset>
+  </form>
+</body>
+</html>
