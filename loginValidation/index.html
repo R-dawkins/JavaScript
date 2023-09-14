@@ -6,6 +6,7 @@
   <script src="./script/script.js"></script>
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
+  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 <body>
   <!-- input에 name은 필수 -->
@@ -39,12 +40,12 @@
       </li>
       
       <li>
-        <label>주소검색 :</label> <input name="add-search" type="text"><button>주소검색</button>
+        <label>주소검색 :</label> <input id="postcode" name="add-search" type="text" placeholder="우편번호"><button id="addSearch" type="button">우편번호 찾기</button>
       </li>
       <!-- 주소검색에서 카카오나 네이버등 api이용해서 -->
 
       <li>
-        <label>주소 :</label> <input name="add1" type="text" placeholder="기본주소"> <input name="add2" type="text" placeholder="상세주소">
+        <label>주소 :</label> <input id="add1" name="add1" type="text" placeholder="기본주소"> <input id="add2" name="add2" type="text" placeholder="상세주소">
       </li>
 
       <li>
